@@ -1,0 +1,49 @@
+git commit -h 
+git help commit
+
+#the directory where this is run will be initated as a master repository
+git init 
+ 
+#will add file to repository(stage), it is all use to pull in new changes to modified files to stagging area .For every new change made, a git add is needed
+git add <file>
+
+# will commit all staged changes made so far to the repository. -a option too directly commit changes without having to stage them with git add.
+git commit -m <"comments">
+git commit -a -m  <"comments">
+
+# provides info on staged, modified and uncommited and changes made since last commit
+git status 
+
+#.gitignore can list all files that you never want to stage/commit
+
+#The command compares what is in your working directory with what is in your staging area. it shows changes you’ve made that you haven’t yet staged.
+git diff
+
+#shows changes since your last commit & the stagging area
+git diff --staged
+
+#to view difference in a GUI
+git difftool
+
+#to undo the changes made to a file in the stagging area (i.e after git add, before git commit)
+git restore --staged <file>
+
+#to discard changes in the working directory
+git restore <file>
+
+#restore the changes to a file that were last committed from git to working directory
+git restore --worktree <file>
+
+# to remove a file from staging area but keep in working directory and still not have it tracked
+git rm --cached <file>
+
+#git loggit log --pretty=oneline
+#git log
+#git log --stat
+
+# cloning a remote directory. it will create a repository under your current working directory
+ git clone https://github.com/vtonse/My_notes
+ cd My_notes
+ git remote # gives the shortname of the handle
+ #hows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
+ git remote -v 
