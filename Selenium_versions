@@ -6,3 +6,5 @@ Selenium core (is websriver + selenium rc)
 
 different locators used to uniquly identify a web element
 id , classname, name, link, xpath, csslocator.
+
+xpath is an xml path of the webelement. This can be located using a tool called firebug which is a plugin to firefox
