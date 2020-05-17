@@ -45,5 +45,49 @@ git rm --cached <file>
  git clone https://github.com/vtonse/My_notes
  cd My_notes
  git remote # gives the shortname of the handle
- #hows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
+ 
+ #sshows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
  git remote -v 
+ 
+ #shows the remote URL's that re being tracked and which branch from local will directly merge into remote
+ git remote show origin
+ 
+ # to get data from your remote projects, command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on
+ git fetch origin
+ 
+ #generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on. -f forces the overwrite -commit (perform commit if merge succeeds
+ git pull -all -f --show-forced-updates
+ 
+ 
+ 
+ #create a branch. After creating a branch, you need to switch to branch using checkout
+ git branch <branchname>
+ 
+ 
+ #do a checkout to switch to a respective branch under a master or to switch back to master. HEAD moves to this
+ git checkout <branchname>
+ git checkout -b <branchname> # to create a new branch and switch to it
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
