@@ -41,6 +41,7 @@ git rm --cached <file>
 #git log
 #git log --stat
 #git log --oneline --decorate #shows you where the branch pointers are pointing
+git log --pretty=oneline
 
 # cloning a remote directory. it will create a repository under your current working directory
  git clone https://github.com/vtonse/My_notes
@@ -70,6 +71,31 @@ git rm --cached <file>
  git checkout -b <branchname> # to create a new branch and switch to it
  
  git push origin
+ #list existing tags
+ git tag
+ git tag -l "v1.8.5*"
+ #lightweight tag is a pointer to a specific commit
+
+#annotated tag
+ git tag -a v1.4 -m "my version 1.4"
+ git show ver1.4
+ 
+#lightweight tag (dont use -a and -m while creating the tag)
+git tag v1.4-1w
+
+#pushes both lightweight and annotated tags
+git push origin --tags
+#pushes only annotated tags
+git push <remote> --follow-tags
+
+#delete tag on local
+git tag -d <tagname>
+
+#delete tag on remote- 2ways
+git push <remote> :refs/tags/<tagname>
+
+git push <remote> --delete <tagname>
+ 
  
  
  
