@@ -40,6 +40,7 @@ git rm --cached <file>
 #git loggit log --pretty=oneline
 #git log
 #git log --stat
+#git log --oneline --decorate #shows you where the branch pointers are pointing
 
 # cloning a remote directory. it will create a repository under your current working directory
  git clone https://github.com/vtonse/My_notes
@@ -67,6 +68,11 @@ git rm --cached <file>
  #do a checkout to switch to a respective branch under a master or to switch back to master. HEAD moves to this
  git checkout <branchname>
  git checkout -b <branchname> # to create a new branch and switch to it
+ 
+ git push origin
+ 
+ 
+ 
  
  
  
