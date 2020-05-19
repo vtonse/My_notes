@@ -66,7 +66,8 @@ git log --pretty=oneline
  git branch <branchname>
  
  
- #do a checkout to switch to a respective branch under a master or to switch back to master. HEAD moves to this
+ #do a checkout to switch to a respective branch under a master or to switch back to master. HEAD moves to this and replaces the 
+ contents of the working directory. So commit everything before doing a checkout
  git checkout <branchname>
  git checkout -b <branchname> # to create a new branch and switch to it
  
@@ -95,7 +96,13 @@ git tag -d <tagname>
 git push <remote> :refs/tags/<tagname>
 
 git push <remote> --delete <tagname>
- 
+
+# checking out the files using a tag, puts the HEAD in a detached state. Any commits made now will only be accessible
+#using the exact commit name and will not change the tag. So it is better to checkout a tag under a separate branch
+# if the intention is to make a fix on an older version. In case you commit and then switch to a diff branch. you can still move the changes to a new branch using  git branch <new-branch-name> <commit checksum>
+
+git checkout <tagname>
+git checkout -b <branchname> <tagname> # to checkout tag to a different branch
  
  
  
