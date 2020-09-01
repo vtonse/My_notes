@@ -5,6 +5,133 @@ Webdriver
 Selenium core (is websriver + selenium rc)
 
 different locators used to uniquly identify a web element
-id , classname, name, link, xpath, csslocator.
+id , classname, name, link text, xpath, css selector
 
-xpath is an xml path of the webelement. This can be located using a tool called firebug which is a plugin to firefox
+link text are hyperlinks that can be located with anchcor tag <a> </a>
+
+xpath is an xml path of the webelement. Xpaths can be used to locate elements having no id, class or name.
+This can be located using a tool called firebug which is a plugin to firefox
+#Relative Xpath
+Relative Xpath begins from the current location and is prefixed with a “//”.
+For example: //span[@class=’Email’]
+
+#Absolute Xpath
+Absolute Xpath begins with a root path and is prefixed with a “/”.
+For example: /HTML/body/div/div[@id=’Email’]
+
+ Xpath Checker is a Firefox add-on to automatically generate Xpath for a web element
+ at most of the times, the generated Xpaths fails to identify the web element rightly. Thus, it is recommended to create our own Xpath following the predefined rules and protocols.
+ 
+ CSS Selector is the combination of an element selector and a selector value which identifies the web element 
+ within a web page. The composite of an element selector and selector value is known as Selector Pattern.
+ these are of type ID, NAME,atrribute, id/class atrribute, substring, inner text
+ 
+ID 
+ex:- for an email webelement
+css=input#Email 
+Syntax
+
+css=<HTML tag><#><Value of ID attribute>
+
+    HTML tag – It is the tag which is used to denote the web element which we want to access.
+    # – The hash sign is used to symbolize ID attribute. It is mandatory to use hash sign if ID attribute is being used to create CSS Selector.
+    Value of ID attribute – It is the value of an ID attribute which is being accessed.
+    The value of ID is always preceded by a hash sign.
+
+CLASS
+EX:-Checkbox , stay signed in 
+css=label.remember	
+css=<HTML tag><.><Value of Class attribute>
+
+    . – The dot sign is used to symbolize Class attribute. It is mandatory to use dot sign if a Class attribute is being used to create a CSS Selector.
+    The value of Class is always preceded by a dot sign.
+
+
+
+ATTRIBUTE
+
+EX:- SIGN IN WEBELELMENT
+css=input[type=’submit’]
+css=<HTML tag><[attribute=Value of attribute]>
+
+    Attribute – It is the attribute we want to use to create CSS Selector. It can value, type, name etc. It is recommended to choose an attribute whose value uniquely identifies the web element.
+    Value of attribute – It is the value of an attribute which is being accessed.
+	
+ID/Class and attribute
+
+EX:- password webelement
+css=input#Passwd[type='password'][name='Passwd']	
+Syntax
+css=<HTML tag><. Or #><value of Class or ID attribute><[attribute=Value of attribute]>
+
+
+SUBSTRING
+    Match a prefix
+    Match a suffix
+    Match a substring
+  
+  Match a prefix	
+	ex:- password input
+	css=input#Passwd[name^='Pass']
+	css=<HTML tag><[attribute^=prefix of the string]>                
+
+    ^ – Symbolic notation to match a string using prefix.
+    Prefix – It is the string based on which match operation is performed. The likely string is expected to start with the specified string.
+	
+	
+	Match a suffix
+	ex:- password input
+	css=input#Passwd[name$='wd']
+	css=<HTML tag><[attribute$=suffix of the string]>                
+
+    # – Symbolic notation to match a string using suffix.
+    The suffix – It is the string based on which match operation is performed. The likely string is expected to ends with the specified string.
+	
+	Match a substring
+	ex:-password input
+	css=input#Passwd[name*='ass']
+	css=<HTML tag><[attribute*=sub string]>                
+
+    * – Symbolic notation to match a string using sub string.
+    Sub string – It is the string based on which match operation is performed. The likely string is expected to have the specified string pattern.
+
+INNER TEXT
+Uses the html tags inner text is used as a string to identify the webelement
+css=<HTML tag><:><contains><(text)>
+
+    : – The dot sign is used to symbolize contains method
+    Contains – It is the value of a Class attribute which is being accessed.
+    Text – The text that is displayed anywhere on the web page irrespective of its location
+	
+	For normal WebDriver scripts (non-Remote), the Java server is not needed.
+
+However, to use Selenium Webdriver Remote or the legacy Selenium API (Selenium-RC), you need to also run the Selenium server. The server requires a Java Runtime Environment (JRE).
+
+Download the server separately, from: http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.0.jar
+
+Run the server from the command line:
+
+java -jar selenium-server-standalone-3.141.0.jar
+
+/html/body/div[3]/div[2]/header/div[1]/div/div/div[2]/div/div/div/div/svg
+
+/html/body/div[3]/div[2]/header/div[1]/div/div/div[2]/div/div/div/div/svg
+
+/html/body/div[5]/iframe
+
+/html/body/div
+
+/html/body/div
+
+//*[@id="login-form"]
+
+/html/body/div[3]/iframe
+
+/html/body/iframe
+
+/html/body/div[4]/iframe
+
+
+/html/body/div[3]/iframe
+
+/html/body/div/div/div[1]/div[4]/div[1]/form/div[1]/input[1]

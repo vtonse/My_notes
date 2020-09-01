@@ -37,11 +37,11 @@ git restore --worktree <file>
 # to remove a file from staging area but keep in working directory and still not have it tracked
 git rm --cached <file>
 
-#git loggit log --pretty=oneline
+#git log --pretty=oneline
 #git log
 #git log --stat
 #git log --oneline --decorate #shows you where the branch pointers are pointing
-git log --pretty=oneline
+
 
 # cloning a remote directory. it will create a repository under your current working directory
  git clone https://github.com/vtonse/My_notes
@@ -54,7 +54,7 @@ git log --pretty=oneline
  #shows the remote URL's that re being tracked and which branch from local will directly merge into remote
  git remote show origin
  
- # to get data from your remote projects, command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on
+ # to get data from your remote projects, command only downloads the data to your local repository.it doesn’t automatically merge it with any of your work or modify what you’re currently working on
  git fetch origin
  
  #generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on. -f forces the overwrite -commit (perform commit if merge succeeds
@@ -103,6 +103,8 @@ git push <remote> --delete <tagname>
 
 git checkout <tagname>
 git checkout -b <branchname> <tagname> # to checkout tag to a different branch
+
+Additional git test
  
  
  

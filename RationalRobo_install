@@ -1,2 +1,84 @@
 Install procedure and caveates while installing rational robo.
-Yet to start on this area. 
+pip install robotframework
+
+Starting from Robot Framework 3.0, tests are executed using the robot script and results post-processed with the rebot script:
+
+robot tests.robot
+rebot output.xml
+
+#Alternatve methods to execute script 
+python -m robot tests.robot
+python3 -m robot.run tests.robot
+jython -m robot tests.robot
+/opt/jython/jython -m robot tests.robot
+
+#Post-processing outputs using the same approach works too, but the module to execute is robot.rebot:
+
+python -m robot.rebot output.xml
+
+
+#If you know where Robot Framework is installed, you can also execute the installed robot directory or the run.py file inside it directly:
+
+python path/to/robot/ tests.robot
+jython path/to/robot/run.py tests.robot
+
+#Post-processing outputs using the robot/rebot.py file works the same way too:
+
+python path/to/robot/rebot.py output.xml
+
+
+pip install webdrivermanager
+webdrivermanager firefox chrome --linkpath /usr/local/bin
+
+pip install --upgrade robotframework-seleniumlibrary
+
+C:\Users\orion\eclipse-workspace\PyDev-Selenium\Cauvery_Calling\new.robot
+
+
+DATA DRIVEN TESTING USING DataDriver
+pip install --upgrade robotframework-datadriver
+pip install --upgrade robotframework-datadriver[XLS]
+
+Library    DataDriver    file=my_data_source.xlsx    sheet_name=2nd Sheet
+
+command line execution
+python -m robot C:\Users\orion\eclipse-workspace\PyDev-Selenium\Cauvery_Calling\TestCases\Donate.robot
+
+
+Selection of Test Cases to execute
+
+Because test cases that are created by DataDriver after parsing while execution, it is not possible to use some Robot Framework methods to select test cases.
+
+Examples for options that have to be used differently:
+robot option 	Description
+--test 	Selects the test cases by name.
+--task 	Alias for --test that can be used when executing tasks.
+--rerunfailed 	Selects failed tests from an earlier output file to be re-executed.
+--include 	Selects the test cases by tag.
+--exclude 	Selects the test cases by tag.
+
+rerunning failed cases using datadriver
+robot --output original.xml tests                                                    # first execute all tests
+robot --prerunmodifier DataDriver.rerunfailed:original.xml --output rerun.xml tests  # then re-execute failing
+rebot --merge original.xml rerun.xml 
+
+robot --variable "DYNAMICTEST:my suite name.test case to be executed" my_suite_name.robot
+robot --variable DYNAMICTESTS:firstsuitename.testcase1|firstsuitename.testcase3|anothersuitename.othertestcase foldername
+robot --include 1OR2 --exclude foo DataDriven.robot
+
+*** Settings ***
+Library    DataDriver    include=1OR2    exclude=foo
+
+Run Keyword If 	[Tags] == "Negative"	Check Element 	${error}
+
+Installing excel library for robot
+
+see the website https://www.programmersought.com/article/63743945184/
+pip install xlutils
+pip install natsort
+python setup.py install
+
+
+
+
+
